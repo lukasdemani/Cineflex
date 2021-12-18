@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MoviesPage from "./components/MoviesPage";
+import Schedule from "./components/Schedule";
 
 export default function App() {
 
@@ -8,6 +9,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MoviesPage />}></Route>
+        <Route path="/horarios/:idMovie" element={<Schedule />}></Route>
       </Routes>
     </BrowserRouter>
   );

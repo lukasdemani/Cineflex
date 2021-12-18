@@ -22,7 +22,7 @@ export default function MoviesPage() {
     <div>
       {movies ? (
         movies.map((movie) => (
-         <Link to={`/`}>
+         <Link to={`/horarios/${movie.id}`}>
              <img src={movie.posterURL}></img>
          </Link>))
          ) : (
