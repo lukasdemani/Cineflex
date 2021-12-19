@@ -19,6 +19,12 @@ export default function Schedule(props) {
         });
       }, []);
 
+    function setFilmDay(time, day, weekDay) {
+        props.time(time);
+        props.day(day);
+        props.weekDay(weekDay);
+    }
+
     return (
         <Container>
             <h1>Selecione o horário</h1>
@@ -28,7 +34,7 @@ export default function Schedule(props) {
                     <Buttons>
                         {day.showtimes.map((s) => (
                             <Link to= {`/assentos/${s.id}`}>
-                                <button>{s.name}</button>
+                                <button onClick={() => setFilmDay(s.name, day.date, day.weekday)}>{s.name}</button>
                             </Link>
                             ))}
                     </Buttons>

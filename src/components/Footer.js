@@ -7,7 +7,10 @@ export default function Footer(props){
             <div>
                 <img src={props.poster}></img>
             </div>
-            <p>{props.movieName}</p>
+            <span>
+                <p>{props.movieName}</p>
+                <p>{props.weekDay} {props.time}</p>
+            </span>
         </Container>
     );
 }
@@ -44,7 +47,13 @@ const Container = styled.div `
 
     p {
         font-size: 26px;
-        padding-top: 30px;
-        padding-left: 15px;
+    }
+
+    span {
+        flex-diretion: column;
+        align-items: center;
+        justify-content: center;
+        padding-left: 10px;
+        padding-top: 22px;
     }
 `
