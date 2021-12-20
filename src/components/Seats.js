@@ -14,8 +14,9 @@ export default function Seats(props) {
     const [seatsArray, setSeatsArray] = useState([]);
     const [client, setClient] = useState('');
     const [cpf, setCpf] = useState ('');
-    const [color, setColor] = useState ('');
+    const [color, setColor] = useState ([]);
     const [selected, setSelected] = useState([]);
+    let colorArray = [];
 
     useEffect(() => {
         const require = axios.get(
@@ -29,6 +30,7 @@ export default function Seats(props) {
       }, []);
 
     function selectSeat(id, index) {
+        setSelected(selectedArray);
         index = parseInt(index)-1;
         selectedArray[index] = !selectedArray[index];
         console.log(selectedArray);
@@ -36,7 +38,6 @@ export default function Seats(props) {
         ids.push(id);
         
         console.log(selected);
-        console.log(ids);
     }
 
     function setInputValues(){
@@ -46,13 +47,21 @@ export default function Seats(props) {
     }
 
     function setSeatColor(isAvailable, isSelected) {
+        let color = "";
+        
         if(isAvailable && !isSelected) {
-            return '#C3CFD9';
+            colorArray.push('#C3CFD9');
+            color = '#C3CFD9';
         }else if (isAvailable && isSelected) {
-            return '#8DD7CF';
+            colorArray.push('#C3CFD9');
+            color = '#8DD7CF';
         }else{
-            return '#FBE192';
+            colorArray.push('#C3CFD9');
+            color = '#FBE192';
         }
+        console.log(colorArray);
+        console.log(color);
+        return color;
     }
 
     return (
@@ -60,7 +69,7 @@ export default function Seats(props) {
             <h1>Selecione o(s) assento(s)</h1>
             <SeatsDiv>
             {seatsArray.map((seat) => (
-                <SeatButton onClick={() => selectSeat(seat.id, seat.name)} color={setSeatColor(seat.isAvailable, selected[seat.name-1])} selected={selected[seat.name]} available={seat.isAvailable}>{seat.name}</SeatButton>
+                <SeatButton onClick={() => selectSeat(seat.id, seat.name)} color={setSeatColor(seat.isAvailable, selected[seat.name-1])} available={seat.isAvailable}>{seat.name}</SeatButton>
             ))}
             </SeatsDiv>
 
@@ -102,16 +111,16 @@ const ClientName = styled.div `
     width: 100%;
     height: 75px;
     margin-top: 41px;
-    padding-left: 24px;
     font-size: 18px;
+    margin-left: 24px;
 `
 
 const ClientCpf = styled.div `
     width: 100%;
     height: 75px;
     margin-top: 15px;
-    padding-left: 24px;
     font-size: 18px;
+    margin-left: 24px;
 `
 
 const BookingButton = styled.div `

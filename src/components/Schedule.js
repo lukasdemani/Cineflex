@@ -61,7 +61,7 @@ const Day = styled.div `
     width: 100%;
     height: 110px;
     font-size: 20px;
-    padding-left: 24px;
+    margin-left: 24px;
 `
 
 const Buttons = styled.div `

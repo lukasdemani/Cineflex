@@ -23,7 +23,7 @@ const Container = styled.div `
     color: #293845;
     
     text-align: left;
-    padding-left: 10px;
+   
     padding-top: 14px;
 
     display: flex;
@@ -37,6 +37,7 @@ const Container = styled.div `
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-left: 10px;
         
     }
 
@@ -53,7 +54,7 @@ const Container = styled.div `
         flex-diretion: column;
         align-items: center;
         justify-content: center;
-        padding-left: 10px;
         padding-top: 22px;
+        margin-left: 10px;
     }
 `
