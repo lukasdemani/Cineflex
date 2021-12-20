@@ -14,9 +14,7 @@ export default function Seats(props) {
     const [seatsArray, setSeatsArray] = useState([]);
     const [client, setClient] = useState('');
     const [cpf, setCpf] = useState ('');
-    const [color, setColor] = useState ([]);
     const [selected, setSelected] = useState([]);
-    let colorArray = [];
 
     useEffect(() => {
         const require = axios.get(
@@ -49,14 +47,11 @@ export default function Seats(props) {
     function setSeatColor(isAvailable, isSelected) {
         let color = "";
         
-        if(isAvailable && !isSelected) {
-            colorArray.push('#C3CFD9');
+        if(isAvailable && !isSelected) {            
             color = '#C3CFD9';
-        }else if (isAvailable && isSelected) {
-            colorArray.push('#C3CFD9');
+        }else if (isAvailable && isSelected) {            
             color = '#8DD7CF';
         }else{
-            colorArray.push('#C3CFD9');
             color = '#FBE192';
         }
         console.log(colorArray);
